@@ -1,1 +1,5 @@
 /APP/node_modules
+/API/node_modules
+/APP/package-lock.json
+/API/package-lock.json
+/API/uploads

@@ -1,8 +1,17 @@
 /* eslint-disable testing-library/prefer-screen-queries */
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { screen,render, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import PdfDragger from '../Components/PdfDragger';
+import { expect } from '@jest/globals';
+
+const mockToast = jest.fn();
+jest.mock('react-toastify', () => ({
+  toast: {
+    error: mockToast,
+  },
+}));
+
 
 describe('PdfDragger Component', () => {
   // Mock the props
@@ -25,6 +34,8 @@ describe('PdfDragger Component', () => {
     expect(getByText(/example.pdf/i)).toBeInTheDocument();
   });
 
+
+
   it('calls getPdf function when "Preview Uploaded PDF" button is clicked', () => {
     const uploadedPdf = { name: 'example.pdf' };
     const { getByText } = render(<PdfDragger {...mockProps} uploadedPdf={uploadedPdf} />);
@@ -32,6 +43,18 @@ describe('PdfDragger Component', () => {
     fireEvent.click(previewButton);
     expect(mockProps.getPdf).toHaveBeenCalledTimes(1);
   });
+
+  // it('show error if file is not pdf', async () => {
+  //   const uploadedPdf = { name: 'example.jpg' };
+  //   const { getByText } = render(<PdfDragger {...mockProps} uploadedPdf={uploadedPdf} />);
+  //   const previewButton = getByText(/Preview Uploaded PDF/i);
+  //   fireEvent.click(previewButton);
+  //   const { getByText: getByTextNew } = render(<App  />);
+  //   expect(getByTextNew(/Please select a PDF file/i)).toBeInTheDocument();
+  //   await waitFor(() => { 
+  //     expect(mockToast).toHaveBeenCalledWith({ type: 'error', message: 'Please select a PDF file' });
+  //   })
+  // });
 
   // Add more test cases as needed
 });
