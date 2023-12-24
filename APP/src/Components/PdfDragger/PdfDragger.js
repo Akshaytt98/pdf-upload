@@ -12,11 +12,11 @@ function PdfDragger(props) {
 
   return (
     !files && (
-        <section>
+        <section >
           <div className="container">
             <div className="center-box">
               <div {...getRootProps()} className="dropzone">
-                <input {...getInputProps()} />
+                <input data-testid="pdf-dragger" {...getInputProps()} />
                 <p>Drag 'n' drop a PDF file here, or click to select a file</p>
               </div>
               {uploadedPdf && (

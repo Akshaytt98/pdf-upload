@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import PDFViewer from './Components/PDFViewer';
-import PdfDragger from './Components/PdfDragger'
+import PdfDragger from './Components/PdfDragger/PdfDragger'
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 

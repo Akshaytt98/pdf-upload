@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import Pagination from './Pagination'
 import Viewer from './Viewer'
-import Checkbox from './Checkbox';
-import ButtonList from './ButtonList';
+import Checkbox from './Checkbox/Checkbox';
+import ButtonList from './ButtonList/ButtonList';
 
 
 function PDFViewer(props) {

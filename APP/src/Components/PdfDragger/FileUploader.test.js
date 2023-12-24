@@ -2,7 +2,7 @@
 import React from 'react';
 import { screen,render, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import PdfDragger from '../Components/PdfDragger';
+import PdfDragger from './PdfDragger';
 import { expect } from '@jest/globals';
 
 const mockToast = jest.fn();

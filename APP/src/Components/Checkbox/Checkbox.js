@@ -7,6 +7,7 @@ function Checkbox(props) {
             {[...Array(numPages)].map((_, page) => (
                 <label key={page}>
                     <input
+                        data-testid={page}
                         type="checkbox"
                         checked={selectedPages.includes(page + 1)}
                         onChange={() => handlePageSelection(page + 1)}
